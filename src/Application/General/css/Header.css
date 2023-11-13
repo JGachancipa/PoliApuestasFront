@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-brand{
+    font-weight: bold;
+}
+.dropdown-menu{
+  border: none;
+}
