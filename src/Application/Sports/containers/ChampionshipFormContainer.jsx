@@ -3,7 +3,7 @@ import ChampionshipForm from '../components/ChampionshipForm'
 import APISContext from '../../../Util/context/APISContext';
 import { APIURL, PAGES } from '../../constants/Constants';
 import { BASIC_STRUCTURE } from '../util/BasicFormDataStructure';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const ChampionshipFormContainer = () => {
   const { id } = useParams();

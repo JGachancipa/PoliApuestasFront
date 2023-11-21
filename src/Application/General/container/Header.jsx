@@ -11,7 +11,8 @@ const Header = () => {
             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
             aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
-            <a className="navbar-brand ps-4 pt-3" href="#">
+
+            <a className="navbar-brand ps-4 pt-3" href="/">
               POLIAPUESTAS
             </a>
           </button>
