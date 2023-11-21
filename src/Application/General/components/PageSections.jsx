@@ -12,10 +12,13 @@ const PageSections = () => {
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false"> DEPORTES </a>
+            aria-expanded="false"> CAMPEONATO </a>
           <ul className="dropdown-menu">
             <li>
-              <Link to={PAGES.CHAMPIONSHIP} className="dropdown-item">CAMPEONATO</Link>
+              <Link to={PAGES.CHAMPIONSHIPFORM} className="dropdown-item">CAMPEONATO</Link>
+            </li>
+            <li>
+              <Link to={PAGES.CHAMPIONSHIPTABLE} className="dropdown-item">LISTA CAMPEONATOS</Link>
             </li>
           </ul>
         </li>

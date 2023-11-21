@@ -1,5 +1,5 @@
 import React from "react";
-import PageSections from "./PageSections";
+import PageSections from "../components/PageSections";
 import "../css/Header.css";
 
 const Header = () => {

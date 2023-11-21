@@ -1,8 +1,5 @@
-export const generateSelectInput = (props) => {
-    return (
-        <select id={props.id} className={props.className}>
-            <option value={0}>--Seleccion--</option>
-            {/**{props.options es un foreach para validar} */}
-        </select>
-    );
+export const generateSelectOptions = (props) => {
+    return props.map((key) => {
+        return <option key={key.value} value={key.value}>{key.option}</option>
+    });
 };
