@@ -1,7 +1,11 @@
 import React from 'react'
 
+/**
+ * Cabecera de las tablas
+ * @param {Object} table 
+ * @returns {HTMLElement}
+ */
 const HeaderTable = ({ table }) => {
-
     return (
         <thead className='table-secondary'>
             {

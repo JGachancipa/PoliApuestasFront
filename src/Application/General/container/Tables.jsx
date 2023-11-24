@@ -3,17 +3,26 @@ import {
     getSortedRowModel, useReactTable
 } from '@tanstack/react-table';
 import React, { useState } from 'react'
+
 import FilterTable from '../components/FilterTable';
 import HeaderTable from '../components/HeaderTable';
 import BodyTable from '../components/BodyTable';
 import PaginationButtons from '../components/PaginationButtons';
 
-const Tables = ({ props}) => {
+/**
+ * Definicion de la tabla
+ * @param {Object} props 
+ * @returns {HTMLElement}
+ */
+const Tables = ({ props }) => {
 
+    //Filtros Columnas
     const [columnFilters, setColumnFilters] = useState([]);
 
-    if (!props.columns.includes(props.tableOptions)) props.columns.push(props.tableOptions);
+    if (!props.columns.includes(props.tableOptions) && props?.tableOptions) 
+    props.columns.push(props.tableOptions);
 
+    // Definicion de la Tabla
     const table = useReactTable({
         data: props.championships,
         columns: props.columns,
@@ -27,7 +36,7 @@ const Tables = ({ props}) => {
 
     return (
         <div className='card p-4 '>
-            <h2 className='mb-3'>Listado de Campeonatos</h2>
+            <h2 className='mb-3'>{props.title}</h2>
             <FilterTable columnFilters={columnFilters} setColumnFilters={setColumnFilters}
                 filter={props.filter} />
             <table className="table mt-3 text-center">

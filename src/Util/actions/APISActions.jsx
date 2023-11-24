@@ -1,6 +1,12 @@
+/**
+ * Acciones De los Reductores 
+ * @type {Object}
+ */
 export const ActionType = {
     GET: 'GET',
-    POST: 'POST',
     PUT: 'PUT',
-    DELETE: 'DELETE'
+    POST: 'POST',
+    ERROR: 'ERROR',
+    DELETE: 'DELETE',
+    FILTER_EDIT: 'FILTER_EDIT',
 };

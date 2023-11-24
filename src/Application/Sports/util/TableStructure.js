@@ -1,3 +1,7 @@
+/**
+ * Columnas Tabla de Campeonatos
+ * @type {Object}
+ */
 export const CHAMPIONSHIP_COLUMNS = [
     {
         accessorKey: 'id',

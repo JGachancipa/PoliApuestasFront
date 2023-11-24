@@ -1,7 +1,14 @@
 import React from 'react'
-import { generateSelectOptions } from '../../../Util/genericFunctions/Elements'
 import { useForm } from 'react-hook-form'
 
+import { generateSelectOptions } from '../../../Util/genericFunctions/Elements'
+
+/**
+ * Estructura del Formulario de Campeonatos
+ * @param {onSubmit} onSubmit 
+ * @param {Object} data 
+ * @returns {HTMLElement}
+ */
 const ChampionshipForm = ({ onSubmit, data }) => {
     const { handleSubmit, register, formState: { errors } } = useForm({ defaultValues: data });
 
@@ -18,14 +25,13 @@ const ChampionshipForm = ({ onSubmit, data }) => {
 
     return (
         <form className="row g-3 ps-5 pe-5" onSubmit={handleSubmit(onSubmit)}>
-            <div className="col-md-6 has-validation" style={{ display: 'none' }}>
+            <div className="col-md-6 has-validation d-none">
                 <label className="form-label">Id</label>
                 <input type="text" className="form-control"
                     {...register("id")} />
                 <div className="invalid-feedback">
                     Please choose a username.
                 </div>
-
             </div>
             <div className="col-md-6">
                 <label className="form-label">Nombre Campeonato</label>
@@ -40,9 +46,9 @@ const ChampionshipForm = ({ onSubmit, data }) => {
             <div className="col-md-6">
                 <label className="form-label">Deporte</label>
                 <div className="input-group has-validation">
-                    <select className={`form-control ${errors.sport === '0' ? 'is-invalid' : ''}`}
+                    <select className={`form-control ${errors.sport ? 'is-invalid' : ''}`}
                         {...register("sport", { required: true })}>
-                        <option value="0">--Seleccion--</option>
+                        <option value=''>--Seleccion--</option>
                         {generateSelectOptions(sports)}
                     </select>
                     <div className="invalid-feedback">
@@ -73,9 +79,9 @@ const ChampionshipForm = ({ onSubmit, data }) => {
             <div className="col-12">
                 <label className="form-label">Categoria</label>
                 <div className="input-group has-validation">
-                    <select className={`form-control ${errors.category === '0' ? 'is-invalid' : ''}`}
+                    <select className={`form-control ${errors.category ? 'is-invalid' : ''}`}
                         {...register("category", { required: true })}>
-                        <option value="0">--Seleccion--</option>
+                        <option value=''>--Seleccion--</option>
                         {generateSelectOptions(sports)}
                     </select>
                     <div className="invalid-feedback">

@@ -1,32 +1,47 @@
+import { useParams } from 'react-router-dom';
 import React, { useContext, useEffect } from 'react'
+
 import ChampionshipForm from '../components/ChampionshipForm'
 import APISContext from '../../../Util/context/APISContext';
 import { APIURL, PAGES } from '../../constants/Constants';
-import { BASIC_STRUCTURE } from '../util/BasicFormDataStructure';
-import { useParams } from 'react-router-dom';
+import { DEFAULT_VALUES } from '../util/BasicFormDataStructure';
+import Loading from '../../General/container/Loading';
+import Errors from '../../General/container/Errors';
 
+/**
+ * Generacion Formulario de Campeonatos
+ * @returns {ChampionshipForm}
+ */
 const ChampionshipFormContainer = () => {
   const { id } = useParams();
-  console.log(id + 'test')
   const url = `${APIURL}${PAGES.CHAMPIONSHIP}`;
-  const { state, getAPISInfo, postAPISData } = useContext(APISContext);
 
+  // Uso del Contexto
+  const { state, getAPISInfo, postAPISData, putAPISInfo } = useContext(APISContext);
+
+  // Metodo de insercion/actualizacion de Informacion de Campeonatos
   const submitChampionship = (data) => {
     const url = APIURL + PAGES.CHAMPIONSHIP;
-    postAPISData(data, url);
+    data.id
+      ? putAPISInfo(url, data, PAGES.CHAMPIONSHIP_TABLE)
+      : postAPISData(data, url, PAGES.CHAMPIONSHIP_TABLE);
   };
 
+  // Consulta de informacion de Campeonatos
   useEffect(() => {
-    if (id !== undefined) {
-      if (!state?.APIOperations) {
-        getAPISInfo(url, id);
-      }
+    if (!state.object?.object && id !== 'add' && !state.error?.error) {
+      getAPISInfo(`${url}${id}/`, id);
     }
   }, [getAPISInfo, state, url, id])
 
-  if (id !== undefined) if (!state?.APIOperations) return <div>...Cargando</div>
+  // Validacion de Errores
+  if (state.error.error) return <Errors errors={state.error.error} />
 
-  const data = state === undefined ? BASIC_STRUCTURE : state.data;
+  // Spinner de Cargado de informacion
+  if (!state.object?.object && id !== 'add') return <Loading />
+
+  // Definicion de Valores del Formulario
+  const data = state && id !== 'add' ? state.object.object : DEFAULT_VALUES;
 
   return (
     <div>
@@ -38,38 +53,5 @@ const ChampionshipFormContainer = () => {
   );
 
 };
-
-
-
-
-// const ChampionshipFormContainer = ({ id = 2 }) => {
-
-//   const { state, postAPISData, getAPISInfo } = useContext(APISContext);
-
-
-//   // const submitChampionship = (data) => {
-//   //   const url = APIURL + PAGES.CHAMPIONSHIP;
-//   //   postAPISData(data, url);
-//   // };
-
-//   useEffect(() => {
-//     if (!state?.APISContext) {
-//       getAPISInfo(APIURL + PAGES.CHAMPIONSHIP);
-//     }
-//   }, [state, getAPISInfo]);
-
-//   console.log(state)
-
-//   if (!state?.APIOperations) return <div>...Cargando</div>
-
-//   // return (
-//   //   <div>
-//   //     <h1 className='mt-2 mb-4 pb-2' id='tittle'>Crear Campeonato</h1>
-//   //     <div className='ps-5 pe-5 mt-3'>
-//   //       <ChampionshipForm onSubmit={submitChampionship} data={state.data} />
-//   //     </div>
-//   //   </div>
-//   // );
-// };
 
 export default ChampionshipFormContainer;

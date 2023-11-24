@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 import { PAGES } from "../../constants/Constants";
 
+/**
+ * Links del Menu 
+ * @returns {HTMLElement}
+ */
 const PageSections = () => {
   return (
     <div className="offcanvas-body">
@@ -11,14 +15,14 @@ const PageSections = () => {
           <Link to={PAGES.HOME} className="nav-link">INICIO</Link>
         </li>
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+          <a href={PAGES.CHAMPIONSHIP} className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
             aria-expanded="false"> CAMPEONATO </a>
           <ul className="dropdown-menu">
             <li>
-              <Link to={PAGES.CHAMPIONSHIPFORM} className="dropdown-item">CAMPEONATO</Link>
+              <Link to={`${PAGES.CHAMPIONSHIP}add`} className="dropdown-item">CAMPEONATO</Link>
             </li>
             <li>
-              <Link to={PAGES.CHAMPIONSHIPTABLE} className="dropdown-item">LISTA CAMPEONATOS</Link>
+              <Link to={PAGES.CHAMPIONSHIP_TABLE} className="dropdown-item">LISTA CAMPEONATOS</Link>
             </li>
           </ul>
         </li>

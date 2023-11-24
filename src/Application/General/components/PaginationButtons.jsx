@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Botones de Paginacion de la Tabla
+ * @param {Object} table 
+ * @returns {HTMLElement}
+ */
 const PaginationButtons = ({ table }) => {
     return (
         <nav aria-label="Page navigation example ">

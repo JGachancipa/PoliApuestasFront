@@ -1,8 +1,22 @@
 import React from 'react'
 
+/**
+ * Campo de Filtrado Para las Tablas
+ * @param {state} columnFilters 
+ * @param {state} setColumnFilters 
+ * @param {String} filter 
+ * @returns {HTMLElement}
+ */
 const FilterTable = ({ columnFilters, setColumnFilters, filter }) => {
 
     const taskName = columnFilters.find(filterCol => filterCol.id === filter)?.value || '';
+
+    /**
+     * Evento para monitorear el cambio de valor en el campo de filtro
+     * @param {Integer} id 
+     * @param {String} value 
+     * @returns {state}
+     */
     const onFilterChange = (id, value) => setColumnFilters(
         prev => prev.filter(fil => fil.id !== id).concat({ id, value })
     );

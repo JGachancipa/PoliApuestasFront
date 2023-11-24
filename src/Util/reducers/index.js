@@ -1,8 +1,18 @@
-import APIOperations from './APIOperations';
+import DataList from './DataList';
+import DataObject from './DataObject';
+import Errors from './Errors';
 
+/**
+ * Reductor De Acciones Para los Componentes
+ * @param {state} state 
+ * @param {Object} action 
+ * @returns {state}
+ */
 const rootReducer = (state, action) => {
     return {
-        APIOperations: APIOperations(state, action)
+        dataList: DataList(state.dataList, action),
+        object: DataObject(state, action),
+        error: Errors(state, action),
     };
 };
 
