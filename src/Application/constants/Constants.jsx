@@ -4,7 +4,10 @@ export const PAGES = {
     HOME: '/',
     CHAMPIONSHIP: '/sports/championship/',
     CHAMPIONSHIPFORM: '/sports/championship/form',
-    CHAMPIONSHIPTABLE: '/sports/championship/table'
+    CHAMPIONSHIPTABLE: '/sports/championship/table',
+    PRIZE: '/1/prize/',
+    PRIZEFORM: '/1/prize/form',
+    PRIZETABLE: '/prize/table'
 };
 
 export const TABLE_INPUT_SEARCH = {

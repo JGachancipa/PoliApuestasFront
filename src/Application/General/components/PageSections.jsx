@@ -22,6 +22,18 @@ const PageSections = () => {
             </li>
           </ul>
         </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">PREMIOS</a>
+          <ul className="dropdown-menu">
+            <li>
+              <Link to={PAGES.PRIZEFORM} className="dropdown-item">PREMIOS</Link>
+            </li>
+            <li>
+              <Link to={PAGES.PRIZEFORMTABLE} className="dropdown-item">LISTA PREMIOS</Link>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   );

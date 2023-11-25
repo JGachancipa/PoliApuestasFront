@@ -6,6 +6,8 @@ import Header from "./General/container/Header";
 import APISContextProvider from "../Util/context/APISContextProvider";
 import ChampionshipFormContainer from "./Sports/containers/ChampionshipFormContainer";
 import ChampionshipListContainer from "./Sports/containers/ChampionshipListContainer";
+import PrizeFormContainer from "./Sports/containers/PrizeFormContainer";
+//import PrizeListContainer from "./Sports/containers/PrizeListContainer";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
             <Route path={PAGES.SPORTS} />
             <Route path={PAGES.CHAMPIONSHIPFORM} Component={ChampionshipFormContainer} />
             <Route path={PAGES.CHAMPIONSHIPTABLE} Component={ChampionshipListContainer} />
+            <Route path={PAGES.PRIZEFORM} Component={PrizeFormContainer} />
+
           </Routes>
         </div>
       </APISContextProvider>
