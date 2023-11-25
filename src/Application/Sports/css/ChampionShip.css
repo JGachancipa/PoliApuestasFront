@@ -1,8 +1,11 @@
+/* Estilos Campeonato */
+/* --- Generales --- */
 * {
   margin: 0;
   padding: 0;
 }
 
+/* --- Especificos --- */
 #tittle {
   border-bottom: 3px solid #000000;
 }

@@ -1,4 +1,8 @@
-export const BASIC_STRUCTURE = {
+/**
+ * Valores por Defecto Formulario Campeonato
+ * @type {Object}
+ */
+export const DEFAULT_VALUES = {
     name: '',
     sport: '',
     category: '',

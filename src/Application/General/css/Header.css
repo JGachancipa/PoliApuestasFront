@@ -1,17 +1,21 @@
+/*Etilos Generales*/
+/* --- Generales --- */
 * {
   margin: 0;
   padding: 0;
 }
+
+/* --- Especificos --- */
+/* ---- Navbar ---- */
 .navbar-toggler {
   border: none;
 }
-
 .navbar-toggler:focus {
   box-shadow: none;
 }
-.navbar-brand{
-    font-weight: bold;
+.navbar-brand {
+  font-weight: bold;
 }
-.dropdown-menu{
+.dropdown-menu {
   border: none;
 }

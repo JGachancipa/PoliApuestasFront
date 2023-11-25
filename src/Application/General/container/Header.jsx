@@ -2,6 +2,10 @@ import React from "react";
 import PageSections from "../components/PageSections";
 import "../css/Header.css";
 
+/**
+ * Cabecera del Proyecto
+ * @returns {HTMLElement}
+ */
 const Header = () => {
   return (
     <div>
