@@ -19,7 +19,8 @@ const ChampionshipListContainer = () => {
 
     // Generacion Columna Opciones
     TABLE_OPTIONS.tableOptions.cell = ({ getValue }) =>
-        OptionsColumn(getValue(), handleEdit, deleteAPISInfo, url, PAGES.CHAMPIONSHIP_TABLE);
+        OptionsColumn(getValue(), handleEdit, deleteAPISInfo, url, 
+        PAGES.CHAMPIONSHIP_TABLE, PAGES.CHAMPIONSHIP);
 
     //Consulta de Informacion de Campeonatos
     useEffect(() => {
