@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import rootReducer from "../reducers";
 import { ActionType } from "../actions/APISActions";
 import APISContext, { initialState } from "./APISContext";
-import { PAGES } from "../../Application/constants/Constants";
 
 /**
  * Proveedor de Contexto

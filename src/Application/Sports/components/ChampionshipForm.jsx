@@ -101,7 +101,9 @@ const ChampionshipForm = ({ onSubmit, data }) => {
                 </div>
             </div>
             <div className="col-12">
-                <button type="submit" className="btn btn-primary">Guardar</button>
+                <button type="submit" className="btn btn-primary">
+                    Guardar
+                </button>
             </div>
         </form>
     );

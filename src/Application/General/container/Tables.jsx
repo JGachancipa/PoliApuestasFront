@@ -19,8 +19,8 @@ const Tables = ({ props }) => {
     //Filtros Columnas
     const [columnFilters, setColumnFilters] = useState([]);
 
-    if (!props.columns.includes(props.tableOptions) && props?.tableOptions) 
-    props.columns.push(props.tableOptions);
+    if (!props.columns.includes(props.tableOptions) && props?.tableOptions)
+        props.columns.push(props.tableOptions);
 
     // Definicion de la Tabla
     const table = useReactTable({
@@ -39,7 +39,7 @@ const Tables = ({ props }) => {
             <h2 className='mb-3'>{props.title}</h2>
             <FilterTable columnFilters={columnFilters} setColumnFilters={setColumnFilters}
                 filter={props.filter} />
-            <table className="table mt-3 text-center">
+            <table className="table mt-3 text-center table-striped rounded">
                 <HeaderTable table={table} />
                 <BodyTable table={table} flexRender={flexRender} />
             </table>

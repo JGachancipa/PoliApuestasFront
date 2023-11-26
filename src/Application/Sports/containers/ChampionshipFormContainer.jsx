@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from 'react'
 import ChampionshipForm from '../components/ChampionshipForm'
 import APISContext from '../../../Util/context/APISContext';
 import { APIURL, PAGES } from '../../constants/Constants';
-import { DEFAULT_VALUES } from '../util/BasicFormDataStructure';
+import { DEFAULT_VALUES_CHAMPIONSHIP } from '../util/BasicFormDataStructure';
 import Loading from '../../General/container/Loading';
 import Errors from '../../General/container/Errors';
 
@@ -41,13 +41,17 @@ const ChampionshipFormContainer = () => {
   if (!state.object?.object && id !== 'add') return <Loading />
 
   // Definicion de Valores del Formulario
-  const data = state && id !== 'add' ? state.object.object : DEFAULT_VALUES;
+  const data = state && id !== 'add' ? state.object.object : DEFAULT_VALUES_CHAMPIONSHIP;
 
   return (
-    <div>
-      <h1 className='mt-2 mb-4 pb-2' id='tittle'>Crear Campeonato</h1>
-      <div className='ps-5 pe-5 mt-3'>
-        <ChampionshipForm onSubmit={submitChampionship} data={data} />
+    <div className="d-flex justify-content-center">
+      <div className='card p-3 mb-2' style={{ width: '50rem' }}>
+        <div className="text-center">
+          <h1 className='mt-2 mb-4 pb-2' id='tittle'>Crear Campeonato</h1>
+        </div>
+        <div className='ps-5 pe-5 mt-3'>
+          <ChampionshipForm onSubmit={submitChampionship} data={data} />
+        </div>
       </div>
     </div>
   );
