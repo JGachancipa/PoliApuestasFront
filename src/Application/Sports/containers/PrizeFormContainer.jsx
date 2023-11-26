@@ -1,32 +1,47 @@
+import { useParams } from 'react-router-dom';
 import React, { useContext, useEffect } from 'react'
 import PrizeForm from '../components/PrizeForm'
 import APISContext from '../../../Util/context/APISContext';
 import { APIURL, PAGES } from '../../constants/Constants';
-import { BASIC_STRUCTURE } from '../util/BasicFormDataStructure';
-import { useParams } from 'react-router-dom';
+import Loading from '../../General/container/Loading';
+import Errors from '../../General/container/Errors';
+// En 'PrizeFormContainer.jsx'
+//import { BASIC_STRUCTURE, DEFAULT_VALUES } from '../util/BasicFormDataStructure';
+
+// Resto del código...
+/**
+ * Generacion Formulario de Campeonatos
+ * @returns {PrizeForm}
+ */
 
 const PrizeFormContainer = () => {
   const { id } = useParams();
-  console.log(id + 'test')
   const url = `${APIURL}${PAGES.PRIZE}`;
-  const { state, getAPISInfo, postAPISData } = useContext(APISContext);
+
+   // Uso del Contexto
+   const { state, getAPISInfo, postAPISData, putAPISInfo } = useContext(APISContext);
 
   const submitPrize = (data) => {
+
     const url = APIURL + PAGES.PRIZE;
-    postAPISData(data, url);
+    data.id
+    ? putAPISInfo(url, data, PAGES.PRIZETABLE)
+    : postAPISData(data, url, PAGES.PRIZETABLE);
   };
+ // Consulta de informacion de Campeonatos
+ useEffect(() => {
+  if (!state.object?.object && id !== 'add' && !state.error?.error) {
+    getAPISInfo(`${url}${id}/`, id);
+  }
+}, [getAPISInfo, state, url, id])
 
-  useEffect(() => {
-    if (id !== undefined) {
-      if (!state?.APIOperations) {
-        getAPISInfo(url, id);
-      }
-    }
-  }, [getAPISInfo, state, url, id])
+  // Validacion de Errores
+  if (state.error.error) return <Errors errors={state.error.error} />
 
-  if (id !== undefined) if (!state?.APIOperations) return <div>...Cargando</div>
+// Spinner de Cargado de informacion
+if (!state.object?.object && id !== 'add') return <Loading />
 
-  const data = state === undefined ? BASIC_STRUCTURE : state.data;
+ const data =  state.object.object;
 
   return (
     <div>

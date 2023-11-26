@@ -2,16 +2,17 @@ import React from 'react'
 import { generateSelectOptions } from '../../../Util/genericFunctions/Elements'
 import { useForm } from 'react-hook-form'
 
+
 const PrizeForm = ({ onSubmit, data }) => {
     const { handleSubmit, register, formState: { errors } } = useForm({ defaultValues: data });
 
     let categoria = [
         {
-            value: 1,
+            value: "Premio Primario",
             option: 'Premio Primario'
         },
         {
-            value: 2,
+            value: "Premio Secundario",
             option: 'Premio Secundario'
         }
     ]

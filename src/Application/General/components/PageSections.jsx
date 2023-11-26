@@ -31,10 +31,10 @@ const PageSections = () => {
             aria-expanded="false">PREMIOS</a>
           <ul className="dropdown-menu">
             <li>
-              <Link to={PAGES.PRIZEFORM} className="dropdown-item">PREMIOS</Link>
+              <Link to={`${PAGES.PRIZE}add`} className="dropdown-item">PREMIOS</Link>
             </li>
             <li>
-              <Link to={PAGES.PRIZEFORMTABLE} className="dropdown-item">LISTA PREMIOS</Link>
+              <Link to={PAGES.PRIZETABLE} className="dropdown-item">LISTA PREMIOS</Link>
             </li>
           </ul>
         </li>

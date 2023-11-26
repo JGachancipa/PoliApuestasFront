@@ -16,7 +16,7 @@ export const initialState = {
  */
 export const AppContextType = {
     state: null,
-    handleEdit: (id) => { },
+    handleEdit: (id,section) => { },
     putAPISInfo: (data) => { },
     getAPISInfo: (url, id) => { },
     postAPISData: (data, url) => { },

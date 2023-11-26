@@ -80,9 +80,9 @@ const APISContextProvider = (props) => {
      * en el Formulario
      * @param {Integer} id 
      */
-    const handleEdit = async (id) => {
+    const handleEdit = async (id, section) => {
         await dispatch({ type: ActionType.FILTER_EDIT, payload: id });
-        navigate(`${PAGES.CHAMPIONSHIP}${id}`);
+        navigate(`${section}${id}`);
     };
 
     /**

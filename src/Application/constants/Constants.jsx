@@ -12,15 +12,9 @@ export const PAGES = {
     HOME: '/',
     ERROR: '*',
     CHAMPIONSHIP: '/sports/championship/',
-<<<<<<< HEAD
-    CHAMPIONSHIPFORM: '/sports/championship/form',
-    CHAMPIONSHIPTABLE: '/sports/championship/table',
+    CHAMPIONSHIP_TABLE: '/sports/championships',
     PRIZE: '/1/prize/',
-    PRIZEFORM: '/1/prize/form',
-    PRIZETABLE: '/prize/table'
-=======
-    CHAMPIONSHIP_TABLE: '/sports/championships'
->>>>>>> f778f337dec91db536663398d70b449a6a0032f5
+    PRIZETABLE: '/1/prize'
 };
 
 /**
@@ -29,6 +23,7 @@ export const PAGES = {
  */
 export const TABLE_INPUTS_SEARCH = {
     CHAMPIONSHIP: 'name',
+    PRIZE:'name',
 }
 
 /**
