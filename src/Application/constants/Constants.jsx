@@ -12,7 +12,9 @@ export const PAGES = {
     HOME: '/',
     ERROR: '*',
     CHAMPIONSHIP: '/sports/championship/',
-    CHAMPIONSHIP_TABLE: '/sports/championships'
+    CHAMPIONSHIP_TABLE: '/sports/championships',
+    PRIZE: '/1/prize/',
+    PRIZETABLE: '/1/prize'
 };
 
 /**
@@ -21,6 +23,7 @@ export const PAGES = {
  */
 export const TABLE_INPUTS_SEARCH = {
     CHAMPIONSHIP: 'name',
+    PRIZE:'name',
 }
 
 /**
