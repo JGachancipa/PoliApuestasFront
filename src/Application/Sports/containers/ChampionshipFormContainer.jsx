@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import ChampionshipForm from '../components/ChampionshipForm'
 import APISContext from '../../../Util/context/APISContext';
@@ -16,8 +16,12 @@ const ChampionshipFormContainer = () => {
   const { id } = useParams();
   const url = `${APIURL}${PAGES.CHAMPIONSHIP}`;
 
+  // Estado del Componente
+  const [errors, setErrors] = useState();
+  const [championship, setChampionship] = useState();
+
   // Uso del Contexto
-  const { state, getAPISInfo, postAPISData, putAPISInfo } = useContext(APISContext);
+  const { getAPISInfo, postAPISData, putAPISInfo } = useContext(APISContext);
 
   // Metodo de insercion/actualizacion de Informacion de Campeonatos
   const submitChampionship = (data) => {
@@ -29,19 +33,21 @@ const ChampionshipFormContainer = () => {
 
   // Consulta de informacion de Campeonatos
   useEffect(() => {
-    if (!state.object?.object && id !== 'add' && !state.error?.error) {
-      getAPISInfo(`${url}${id}/`, id);
+    if (!championship && id !== 'add' && !errors) {
+      getAPISInfo(url, id)
+        .then(({ data }) => setChampionship(data))
+        .catch(err => setErrors({status: err.response.status, statusText: err.response.statusText}));
     }
-  }, [getAPISInfo, state, url, id])
-
+  }, [getAPISInfo, championship, errors, id, url]);
+  
   // Validacion de Errores
-  if (state.error.error) return <Errors errors={state.error.error} />
+  if (errors) return <Errors errors={errors} />
 
   // Spinner de Cargado de informacion
-  if (!state.object?.object && id !== 'add') return <Loading />
+  if (!championship && id !== 'add') return <Loading />
 
   // Definicion de Valores del Formulario
-  const data = state && id !== 'add' ? state.object.object : DEFAULT_VALUES_CHAMPIONSHIP;
+  const data = championship && id !== 'add' ? championship : DEFAULT_VALUES_CHAMPIONSHIP;
 
   return (
     <div className="d-flex justify-content-center">
