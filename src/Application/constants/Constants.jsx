@@ -14,7 +14,10 @@ export const PAGES = {
     CHAMPIONSHIP: '/sports/championship/',
     CHAMPIONSHIP_TABLE: '/sports/championships',
     PRIZE: '/1/prize/',
-    PRIZETABLE: '/1/prize'
+    PRIZETABLE: '/1/prize',
+    ATHLETICS: '/sports/athletics/',
+    ATHLETICSTABLE: '/sports/athletics',
+
 };
 
 /**
@@ -24,6 +27,7 @@ export const PAGES = {
 export const TABLE_INPUTS_SEARCH = {
     CHAMPIONSHIP: 'name',
     PRIZE:'name',
+    ATHLETICS:'name',
 }
 
 /**

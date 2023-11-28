@@ -28,6 +28,18 @@ const PageSections = () => {
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">DEPORTES</a>
+          <ul className="dropdown-menu">
+            <li>
+              <Link to={`${PAGES.ATHLETICS}add`} className="dropdown-item">DEPORTES</Link>
+            </li>
+            <li>
+              <Link to={PAGES.ATHLETICSTABLE} className="dropdown-item">LISTA DE DEPORTES</Link>
+            </li>
+          </ul>
+        </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">PREMIOS</a>
           <ul className="dropdown-menu">
             <li>

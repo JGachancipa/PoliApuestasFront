@@ -40,7 +40,9 @@ export const CHAMPIONSHIP_COLUMNS = [
     },
 ]
 
-export const PRIZE_COLUMNS = [
+
+
+export const ATHLETICS_COLUMNS = [
     {
         accessorKey: 'id',
         header: 'Id',
@@ -56,15 +58,5 @@ export const PRIZE_COLUMNS = [
         header: 'Descripcion',
         cell: (props) => <p>{props.getValue()}</p>
     },
-    {
-        accessorKey: 'type',
-        header: 'Tipo',
-        cell: (props) => <p>{props.getValue()}</p>
-    },
-    {
-        accessorKey: 'Value',
-        header: 'Fecha Final',
-        cell: (props) => <p>{props.getValue()}</p>
-    },
-    
-]
+
+    ]

@@ -7,8 +7,10 @@ import Header from "./General/container/Header";
 import APISContextProvider from "../Util/context/APISContextProvider";
 import ChampionshipFormContainer from "./Sports/containers/ChampionshipFormContainer";
 import ChampionshipListContainer from "./Sports/containers/ChampionshipListContainer";
-import PrizeFormContainer from "./Sports/containers/PrizeFormContainer";
-import PrizeListContainer from "./Sports/containers/PrizeListContainer";
+import PrizeFormContainer from "./Prizes/containers/PrizeFormContainer";
+import PrizeListContainer from "./Prizes/containers/PrizeListContainer";
+import AthleticsFormContainer from "./Sports/containers/AthleticsFormContainer";
+import AthleticsListContainer from "./Sports/containers/AthleticsListContainer";
 import Errors from "./General/container/Errors";
 
 /**
@@ -28,6 +30,8 @@ const App = () => {
             <Route path={PAGES.CHAMPIONSHIP_TABLE} Component={ChampionshipListContainer} />
             <Route path={`${PAGES.PRIZE}:id`} Component={PrizeFormContainer} />
             <Route path={PAGES.PRIZETABLE} Component={PrizeListContainer} />
+            <Route path={`${PAGES.ATHLETICS}:id`} Component={AthleticsFormContainer} />
+            <Route path={PAGES.ATHLETICSTABLE} Component={AthleticsListContainer} />
 
           </Routes>
         </div>
