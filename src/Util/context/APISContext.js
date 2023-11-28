@@ -1,26 +1,15 @@
 import React from 'react';
 
 /**
- * Estado Inicial Del Contexto
- * @type {Object}
- */
-export const initialState = {
-    dataList: [],
-    object: {},
-    error: {}
-};
-
-/**
  * Contexto General Del Aplicativo
  * @type {Object}
  */
 export const AppContextType = {
-    state: null,
-    handleEdit: (id,section) => { },
     putAPISInfo: (data) => { },
     getAPISInfo: (url, id) => { },
+    getAPISInfoList: (url) => { },
+    handleEdit: (id, section) => { },
     postAPISData: (data, url) => { },
-    dispatch: (action, payload) => { },
     deleteAPISInfo: (id, url, section) => { },
 }
 

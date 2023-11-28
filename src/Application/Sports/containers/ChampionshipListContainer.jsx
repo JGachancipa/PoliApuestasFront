@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import ChampionshipList from '../components/ChampionshipList'
 import APISContext from '../../../Util/context/APISContext';
@@ -13,27 +13,31 @@ import Loading from '../../General/container/Loading';
  */
 const ChampionshipListContainer = () => {
     const url = `${APIURL}${PAGES.CHAMPIONSHIP}`;
-
+    
+    // Estado del Componente
+    const [championshipList, setChampionshipList] = useState();
+    
     // Uso del Contexto
-    const { state, getAPISInfo, deleteAPISInfo, handleEdit } = useContext(APISContext);
+    const { getAPISInfoList, deleteAPISInfo, handleEdit } = useContext(APISContext);
 
     // Generacion Columna Opciones
     TABLE_OPTIONS.tableOptions.cell = ({ getValue }) =>
-        OptionsColumn(getValue(), handleEdit, deleteAPISInfo, url, PAGES.CHAMPIONSHIP_TABLE);
+        OptionsColumn(getValue(), handleEdit, deleteAPISInfo, url, PAGES.CHAMPIONSHIP);
 
     //Consulta de Informacion de Campeonatos
     useEffect(() => {
-        if (!state.dataList?.dataList) {
-            getAPISInfo(url);
+        if (!championshipList) {
+            getAPISInfoList(url)
+                .then(({ data }) => setChampionshipList(data));
         }
-    }, [getAPISInfo, state, url]);
+    }, [getAPISInfoList, championshipList, url]);
 
     // Definicion de Valores del Formulario
-    if (!state.dataList?.dataList) return <Loading />;
+    if (!championshipList) return <Loading />;
 
     // Parametros Tabla Campeonatos
     const parameters = {
-        championships: state.dataList.dataList,
+        list: championshipList,
         columns: CHAMPIONSHIP_COLUMNS,
         filter: TABLE_INPUTS_SEARCH.CHAMPIONSHIP,
         tableOptions: TABLE_OPTIONS.tableOptions,

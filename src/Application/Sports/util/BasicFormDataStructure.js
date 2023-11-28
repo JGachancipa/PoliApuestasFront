@@ -2,7 +2,7 @@
  * Valores por Defecto Formulario Campeonato
  * @type {Object}
  */
-export const DEFAULT_VALUES = {
+export const DEFAULT_VALUES_CHAMPIONSHIP = {
     name: '',
     sport: '',
     category: '',
@@ -10,4 +10,5 @@ export const DEFAULT_VALUES = {
     finalDate: '',
     description: '',
 };
+
 

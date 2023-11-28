@@ -19,7 +19,7 @@ const PrizeForm = ({ onSubmit, data }) => {
 
     return (
         <form className="row g-3 ps-5 pe-5" onSubmit={handleSubmit(onSubmit)}>
-            <div className="col-md-6 has-validation" style={{ display: 'none' }}>
+            <div className="col-md-6 has-validation d-none">
                 <label className="form-label">Id</label>
                 <input type="text" className="form-control"
                     {...register("id")} />

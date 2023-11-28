@@ -7,7 +7,7 @@ import React from 'react'
  */
 const HeaderTable = ({ table }) => {
     return (
-        <thead className='table-secondary'>
+        <thead className='table-dark'>
             {
                 table.getHeaderGroups().map(headerGroup => (
                     <tr key={headerGroup.id}>

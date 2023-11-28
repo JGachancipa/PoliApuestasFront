@@ -1,11 +1,8 @@
+import React from "react";
 import axios from "axios";
-import React, { useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 
-import rootReducer from "../reducers";
-import { ActionType } from "../actions/APISActions";
-import APISContext, { initialState } from "./APISContext";
-import { PAGES } from "../../Application/constants/Constants";
+import APISContext from "./APISContext";
 
 /**
  * Proveedor de Contexto
@@ -14,7 +11,6 @@ import { PAGES } from "../../Application/constants/Constants";
  */
 const APISContextProvider = (props) => {
     const navigate = useNavigate();
-    const [state, dispatch] = useReducer(rootReducer, initialState);
 
     /**
      * Consulta Mediante APIS a Base de Datos
@@ -22,13 +18,16 @@ const APISContextProvider = (props) => {
      * @param {Integer} id 
      */
     const getAPISInfo = async (url, id) => {
-        await axios.get(url)
-            .then(({ data }) => {
-                const type = id ? ActionType.FILTER_EDIT : ActionType.GET;
-                dispatch({ type, payload: data });
-            })
-            .catch(err => dispatch({ type: ActionType.ERROR, payload: err }));
+        return await axios.get(`${url}${id}/`);
     };
+
+    /**
+     * Consulta Listado Mediante APIS a Base de Datos
+     * @param {String} url 
+     */
+    const getAPISInfoList = async (url) => {
+        return await axios.get(url);
+    }
 
     /**
      * Envio de Informacion Mediante APIS a Base de Datos
@@ -38,10 +37,6 @@ const APISContextProvider = (props) => {
      */
     const postAPISData = async (data, url, section) => {
         await axios.post(url, data)
-            .then(({ data }) => {
-                dispatch({ type: ActionType.POST, payload: data });
-            })
-            .catch(err => dispatch({ type: ActionType.ERROR, payload: err }));
         navigate(section);
     };
 
@@ -51,13 +46,9 @@ const APISContextProvider = (props) => {
      * @param {String} url 
      * @param {String} section 
      */
-    const deleteAPISInfo = async (id, url, section) => {
+    const deleteAPISInfo = async (id, url) => {
         await axios.delete(`${url}${id}/`)
-            .then(({ data }) => {
-                dispatch({ type: ActionType.DELETE, payload: data });
-            })
-            .catch(err => dispatch({ type: ActionType.ERROR, payload: err }));
-        navigate(section);
+        window.location.reload();
     };
 
     /**
@@ -68,10 +59,6 @@ const APISContextProvider = (props) => {
      */
     const putAPISInfo = async (url, data, section) => {
         await axios.put(`${url}${data.id}/`, data)
-            .then(({ data }) => {
-                dispatch({ type: ActionType.PUT, payload: data });
-            })
-            .catch(err => dispatch({ type: ActionType.ERROR, payload: err }));
         navigate(section);
     };
 
@@ -80,8 +67,7 @@ const APISContextProvider = (props) => {
      * en el Formulario
      * @param {Integer} id 
      */
-    const handleEdit = async (id, section) => {
-        await dispatch({ type: ActionType.FILTER_EDIT, payload: id });
+    const handleEdit = (id, section) => {
         navigate(`${section}${id}`);
     };
 
@@ -90,12 +76,12 @@ const APISContextProvider = (props) => {
      * @type {Object}
      */
     const providerValue = {
-        state,
         handleEdit,
         putAPISInfo,
         getAPISInfo,
         postAPISData,
         deleteAPISInfo,
+        getAPISInfoList,
     };
 
     return (
