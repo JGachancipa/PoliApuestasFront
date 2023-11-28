@@ -28,7 +28,6 @@ const App = () => {
             <Route path={PAGES.CHAMPIONSHIP_TABLE} Component={ChampionshipListContainer} />
             <Route path={`${PAGES.PRIZE}:id`} Component={PrizeFormContainer} />
             <Route path={PAGES.PRIZETABLE} Component={PrizeListContainer} />
-
           </Routes>
         </div>
       </APISContextProvider>

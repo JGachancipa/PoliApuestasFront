@@ -37,7 +37,7 @@ const ChampionshipListContainer = () => {
 
     // Parametros Tabla Campeonatos
     const parameters = {
-        championships: championshipList,
+        list: championshipList,
         columns: CHAMPIONSHIP_COLUMNS,
         filter: TABLE_INPUTS_SEARCH.CHAMPIONSHIP,
         tableOptions: TABLE_OPTIONS.tableOptions,

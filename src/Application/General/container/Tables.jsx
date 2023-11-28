@@ -24,7 +24,7 @@ const Tables = ({ props }) => {
 
     // Definicion de la Tabla
     const table = useReactTable({
-        data: props.championships,
+        data: props.list,
         columns: props.columns,
         state: { columnFilters, },
         initialState: { columnVisibility: { id: false }, },
