@@ -11,4 +11,8 @@ export const DEFAULT_VALUES_CHAMPIONSHIP = {
     description: '',
 };
 
+export const DEFAULT_VALUES_ATHLETICS = {
+    name: '',
+    description: '',
+};
 

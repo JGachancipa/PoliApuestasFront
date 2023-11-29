@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import AthleticsList from '../components/AthleticsList'
 import APISContext from '../../../Util/context/APISContext';
@@ -14,26 +14,30 @@ import Loading from '../../General/container/Loading';
 const AthleticsListContainer = () => {
     const url = `${APIURL}${PAGES.ATHLETICS}`;
 
+        // Estado del Componente
+        const [athleticsList, setAthleticsList] = useState();
+
     // Uso del Contexto
-    const { state, getAPISInfo, deleteAPISInfo, handleEdit } = useContext(APISContext);
+    const {getAPISInfoList, deleteAPISInfo, handleEdit } = useContext(APISContext);
 
     // Generacion Columna Opciones
     TABLE_OPTIONS.tableOptions.cell = ({ getValue }) =>
-        OptionsColumn(getValue(), handleEdit, deleteAPISInfo, url, PAGES.ATHLETICSTABLE,PAGES.ATHLETICS);
+        OptionsColumn(getValue(), handleEdit, deleteAPISInfo, url,PAGES.ATHLETICS);
 
-    //Consulta de Informacion de Campeonatos
-    useEffect(() => {
-        if (!state.dataList?.dataList) {
-            getAPISInfo(url);
-        }
-    }, [getAPISInfo, state, url]);
+ //Consulta de Informacion de Campeonatos
+ useEffect(() => {
+    if (!athleticsList) {
+        getAPISInfoList(url)
+            .then(({ data }) => setAthleticsList(data));
+    }
+}, [getAPISInfoList, athleticsList, url]);
 
     // Definicion de Valores del Formulario
-    if (!state.dataList?.dataList) return <Loading />;
+    if (!athleticsList) return <Loading />;
 
     // Parametros Tabla Campeonatos
     const parameters = {
-        championships: state.dataList.dataList,
+        list:athleticsList,
         columns: ATHLETICS_COLUMNS,
         filter: TABLE_INPUTS_SEARCH.ATHLETICS,
         tableOptions: TABLE_OPTIONS.tableOptions,
