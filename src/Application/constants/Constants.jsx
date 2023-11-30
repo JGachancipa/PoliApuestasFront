@@ -17,7 +17,8 @@ export const PAGES = {
     PRIZETABLE: '/1/prize',
     ATHLETICS: '/sports/athletics/',
     ATHLETICSTABLE: '/sports/athletics',
-
+    RAFFLE: '/raffle/api/v1/Raffle/',
+    RAFFLETABLE: '/raffle/Raffle'
 };
 
 /**
@@ -28,6 +29,7 @@ export const TABLE_INPUTS_SEARCH = {
     CHAMPIONSHIP: 'name',
     PRIZE:'name',
     ATHLETICS:'name',
+    RAFFLE:'title',
 }
 
 /**

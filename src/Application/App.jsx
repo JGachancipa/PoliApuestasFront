@@ -11,6 +11,8 @@ import PrizeFormContainer from "./Prizes/containers/PrizeFormContainer";
 import PrizeListContainer from "./Prizes/containers/PrizeListContainer";
 import AthleticsFormContainer from "./Sports/containers/AthleticsFormContainer";
 import AthleticsListContainer from "./Sports/containers/AthleticsListContainer";
+import RaffleFormContainer from "./Raffle/containers/RaffleFormContainer";
+import RaffleListContainer from "./Raffle/containers/RaffleListContainer";
 import Errors from "./General/container/Errors";
 
 /**
@@ -32,6 +34,8 @@ const App = () => {
             <Route path={PAGES.PRIZETABLE} Component={PrizeListContainer} />
             <Route path={`${PAGES.ATHLETICS}:id`} Component={AthleticsFormContainer} />
             <Route path={PAGES.ATHLETICSTABLE} Component={AthleticsListContainer} />
+            <Route path={`${PAGES.RAFFLE}:id`} Component={RaffleFormContainer} />
+            <Route path={PAGES.RAFFLETABLE} Component={RaffleListContainer} />
 
           </Routes>
         </div>

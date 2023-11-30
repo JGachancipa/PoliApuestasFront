@@ -50,6 +50,20 @@ const PageSections = () => {
             </li>
           </ul>
         </li>
+
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">RIFA</a>
+          <ul className="dropdown-menu">
+            <li>
+              <Link to={`${PAGES.RAFFLE}add`} className="dropdown-item">RIFAS</Link>
+            </li>
+            <li>
+              <Link to={PAGES.RAFFLETABLE} className="dropdown-item">LISTA DE RIFAS</Link>
+            </li>
+          </ul>
+        </li>
+
       </ul>
     </div>
   );
