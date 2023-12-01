@@ -14,6 +14,8 @@ import AthleticsListContainer from "./Sports/containers/AthleticsListContainer";
 import RaffleResultsListContainer from "./AdwardsPublicatons/containers/RaffleResultsListContainer";
 import BetResultsListContainer from "./AdwardsPublicatons/containers/BetResultsListContainer";
 import SalesResultsListContainer from "./SalesResults/containers/SalesResultsListContainer";
+import RaffleFormContainer from "./Raffle/containers/RaffleFormContainer";
+import RaffleListContainer from "./Raffle/containers/RaffleListContainer";
 import Errors from "./General/container/Errors";
 
 /**
@@ -65,6 +67,10 @@ const App = () => {
                             path={PAGES.SALES_RESULTS_TABLE}
                             Component={SalesResultsListContainer}
                         />
+
+
+<Route path={`${PAGES.RAFFLE}:id`} Component={RaffleFormContainer} />
+            <Route path={PAGES.RAFFLETABLE} Component={RaffleListContainer} />
                     </Routes>
                 </div>
             </APISContextProvider>

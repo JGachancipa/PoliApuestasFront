@@ -23,6 +23,8 @@ export const PAGES = {
     BET_RESULTS_TABLE: "/adwards_publications_bet/bet",
     SALES_RESULTS: "/sales_results/sales/",
     SALES_RESULTS_TABLE: "/sales_results/sales",
+    RAFFLE: '/raffle/api/v1/Raffle/',
+    RAFFLETABLE: '/raffle/Raffle'
 };
 
 /**
@@ -35,6 +37,8 @@ export const TABLE_INPUTS_SEARCH = {
     ATHLETICS: "name",
     RAFFLE_RESULTS: "name",
     BET_RESULTS: "name",
+    RAFFLE:'title',
+
 };
 
 /**
