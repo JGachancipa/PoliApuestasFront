@@ -11,6 +11,9 @@ import PrizeFormContainer from "./Prizes/containers/PrizeFormContainer";
 import PrizeListContainer from "./Prizes/containers/PrizeListContainer";
 import AthleticsFormContainer from "./Sports/containers/AthleticsFormContainer";
 import AthleticsListContainer from "./Sports/containers/AthleticsListContainer";
+import RaffleResultsListContainer from "./AdwardsPublicatons/containers/RaffleResultsListContainer";
+import BetResultsListContainer from "./AdwardsPublicatons/containers/BetResultsListContainer";
+import SalesResultsListContainer from "./SalesResults/containers/SalesResultsListContainer";
 import RaffleFormContainer from "./Raffle/containers/RaffleFormContainer";
 import RaffleListContainer from "./Raffle/containers/RaffleListContainer";
 import Errors from "./General/container/Errors";
@@ -20,28 +23,59 @@ import Errors from "./General/container/Errors";
  * @returns {App}
  */
 const App = () => {
-  return (
-    <BrowserRouter>
-      <APISContextProvider>
-        <Header />
-        <div className="container mt-4">
-          <Routes>
-            <Route path={PAGES.HOME} Component={Home}/>
-            <Route path={PAGES.ERROR} Component={Errors}/>
-            <Route path={`${PAGES.CHAMPIONSHIP}:id`} Component={ChampionshipFormContainer} />
-            <Route path={PAGES.CHAMPIONSHIP_TABLE} Component={ChampionshipListContainer} />
-            <Route path={`${PAGES.PRIZE}:id`} Component={PrizeFormContainer} />
-            <Route path={PAGES.PRIZETABLE} Component={PrizeListContainer} />
-            <Route path={`${PAGES.ATHLETICS}:id`} Component={AthleticsFormContainer} />
-            <Route path={PAGES.ATHLETICSTABLE} Component={AthleticsListContainer} />
-            <Route path={`${PAGES.RAFFLE}:id`} Component={RaffleFormContainer} />
-            <Route path={PAGES.RAFFLETABLE} Component={RaffleListContainer} />
+    return (
+        <BrowserRouter>
+            <APISContextProvider>
+                <Header />
+                <div className="container mt-4">
+                    <Routes>
+                        <Route path={PAGES.HOME} Component={Home} />
+                        <Route path={PAGES.ERROR} Component={Errors} />
+                        <Route
+                            path={`${PAGES.CHAMPIONSHIP}:id`}
+                            Component={ChampionshipFormContainer}
+                        />
+                        <Route
+                            path={PAGES.CHAMPIONSHIP_TABLE}
+                            Component={ChampionshipListContainer}
+                        />
+                        <Route
+                            path={`${PAGES.PRIZE}:id`}
+                            Component={PrizeFormContainer}
+                        />
+                        <Route
+                            path={PAGES.PRIZETABLE}
+                            Component={PrizeListContainer}
+                        />
+                        <Route
+                            path={`${PAGES.ATHLETICS}:id`}
+                            Component={AthleticsFormContainer}
+                        />
+                        <Route
+                            path={PAGES.ATHLETICSTABLE}
+                            Component={AthleticsListContainer}
+                        />
+                        <Route
+                            path={PAGES.RAFFLE_RESULTS_TABLE}
+                            Component={RaffleResultsListContainer}
+                        />
+                        <Route
+                            path={PAGES.BET_RESULTS_TABLE}
+                            Component={BetResultsListContainer}
+                        />
+                        <Route
+                            path={PAGES.SALES_RESULTS_TABLE}
+                            Component={SalesResultsListContainer}
+                        />
 
-          </Routes>
-        </div>
-      </APISContextProvider>
-    </BrowserRouter>
-  );
+
+<Route path={`${PAGES.RAFFLE}:id`} Component={RaffleFormContainer} />
+            <Route path={PAGES.RAFFLETABLE} Component={RaffleListContainer} />
+                    </Routes>
+                </div>
+            </APISContextProvider>
+        </BrowserRouter>
+    );
 };
 
 export default App;
